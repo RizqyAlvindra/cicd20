@@ -2,8 +2,8 @@ def secret = 'global'
 def server = 'aimingds@103.127.97.23'
 def directory = '/home/aimingds/dumbplay-frontend'
 def branch  = 'master'
-def namebuild = lolrandom
-def tag = staging
+def namebuild = 'lolrandom'
+def tag = 'staging'
 
 pipeline {
     agent any
