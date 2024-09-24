@@ -1,6 +1,6 @@
 def secret = 'global'
-def server = 'aimingds@103.127.97.23'
-def directory = '/home/aimingds/dumbplay-frontend'
+def server = 'alvin@34.142.183.241'
+def directory = '/home/alvin/test'
 def branch  = 'master'
 def namebuild = 'lolrandom'
 def tag = 'staging'
@@ -26,7 +26,6 @@ pipeline {
                sshagent([secret]){
                   sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
                   cd ${directory}
-                  docker buildx build -t ${namebuild}:${tag} .
                   echo "Build code telah selesai"
                   exit
 		  EOF""" 
@@ -39,8 +38,6 @@ pipeline {
                sshagent([secret]){
                   sh """ssh -o StrictHostKeyChecking=no ${server} << EOF
                   cd ${directory}
-                  docker compose down
-                  docker compose up -d
                   echo "deployment telah selesai"
                   exit
                   EOF"""
